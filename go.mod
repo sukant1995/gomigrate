@@ -1,4 +1,4 @@
-module github.com/golang-migrate/migrate/v4
+module github.com/sukant1995/gomigrate 
 
 require (
 	cloud.google.com/go v0.103.0 // indirect

@@ -4,7 +4,7 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/golang-migrate/migrate/v4/source"
+	"github.com/sukant1995/gomigrate/source"
 )
 
 // driver is a migration source driver for reading migrations from

@@ -10,8 +10,8 @@ import (
 	"github.com/hashicorp/go-multierror"
 	"go.uber.org/atomic"
 
-	"github.com/golang-migrate/migrate/v4"
-	"github.com/golang-migrate/migrate/v4/database"
+	"github.com/sukant1995/gomigrate"
+	"github.com/sukant1995/gomigrate/database"
 	_ "modernc.org/ql/driver"
 )
 

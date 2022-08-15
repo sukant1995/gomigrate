@@ -10,7 +10,7 @@ import (
 )
 
 import (
-	"github.com/golang-migrate/migrate/v4/dktesting"
+	"github.com/sukant1995/gomigrate/dktesting"
 )
 
 func ExampleParallelTest() {

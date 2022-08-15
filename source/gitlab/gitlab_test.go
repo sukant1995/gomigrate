@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	st "github.com/golang-migrate/migrate/v4/source/testing"
+	st "github.com/sukant1995/gomigrate/source/testing"
 )
 
 var GitlabTestSecret = "" // username:token
