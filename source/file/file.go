@@ -4,6 +4,8 @@ import (
 	nurl "net/url"
 	"os"
 	"path/filepath"
+	"runtime"
+	"strings"
 
 	"github.com/sukant1995/gomigrate/source"
 	"github.com/sukant1995/gomigrate/source/iofs"
@@ -46,6 +48,11 @@ func parseURL(url string) (string, error) {
 		p = u.Host + u.Path
 	}
 
+	if runtime.GOOS == "windows" {
+		p = strings.TrimPrefix(p, "/")
+		// u.RawPath = strings.TrimPrefix(p, "/")
+	}
+
 	if len(p) == 0 {
 		// default to current directory if no path
 		wd, err := os.Getwd()
@@ -54,7 +61,7 @@ func parseURL(url string) (string, error) {
 		}
 		p = wd
 
-	} else if p[0:1] == "." || p[0:1] != "/" {
+	} else if runtime.GOOS != "windows" && (p[0:1] == "." || p[0:1] != "/") {
 		// make path absolute if relative
 		abs, err := filepath.Abs(p)
 		if err != nil {

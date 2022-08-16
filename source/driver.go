@@ -8,8 +8,6 @@ import (
 	"fmt"
 	"io"
 	nurl "net/url"
-	"runtime"
-	"strings"
 	"sync"
 )
 
@@ -84,12 +82,6 @@ func Open(url string) (Driver, error) {
 	if u.Scheme == "" {
 		return nil, fmt.Errorf("source driver: invalid URL scheme")
 	}
-
-	if runtime.GOOS == "windows" {
-		u.Path = strings.TrimPrefix(u.Path, "/")
-		u.RawPath = strings.TrimPrefix(u.Path, "/")
-	}
-
 	driversMu.RLock()
 	d, ok := drivers[u.Scheme]
 	driversMu.RUnlock()
